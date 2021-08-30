@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="w-25 rounded shadow-lg d-flex flex-column m-auto p-5 mt-5">
+        <h4 class="text-center mb-5">Login</h4>
+        <form action='/user/login' method="POST" class="text-center" action="">
+            <input class="text-center p-1 w-50 mb-3 border border-dark rounded" value="<%=email%> " name="email" type="email" placeholder="email" required>
+            <input class="text-center p-1 w-50 mb-5 border border-dark rounded" name="password" type="password" placeholder="password" required> <br>
+            <button class="text-center p-1 w-50 mb-2 border border-dark bg-info rounded" onclick="setId()">login</button>
+
+            <a class="text-center p-1 w-50 mb-3 border border-dark bg-white rounded btn btn-white" href="./register">new user</a>
+
+
+            <%if (error) {%> 
+            <div class="mt-2 text-danger">email or password incorrect</div>
+            <% } %> 
+        </form>
+    </div>
+
+
+    <script>
+
+        function setId(){
+            let input = document.querySelectorAll('input')
+            localStorage.setItem('myId', input[0].value );
+            console.log(input[0].value);
+        }
+        
+
+    </script>
+</body>
+
+</html>
